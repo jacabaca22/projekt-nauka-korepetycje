@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Szybki kurs HTML</title>
+  <link rel="stylesheet" href="formularze.css" type="text/css" />
+</head>
+<body>
+
+<div id="kontener">
+
+  <div id="baner">
+    <h1>Szybki kurs HTML</h1>
+  </div>
+
+  <div id="menu">
+    <a href="index.html">Podstawowe znaczniki</a>
+    <a href="tabele.html">Tworzenie tabel</a>
+    <a href="formularze.html">Budowa formularzy</a>
+    <a href="zamowienie.html">Zamów pizzę</a>
+  </div>
+
+  <h2>Podstawowe znaczniki HTML to:</h2>
+  <ul>
+    <li>&lt;html&gt; – korzeń dokumentu</li>
+    <li>&lt;head&gt; – nagłówek strony z informacjami</li>
+    <li>&lt;body&gt; – właściwa treść</li>
+    <li>&lt;div&gt; – element blokowy</li>
+    <li>&lt;p&gt; – akapit</li>
+    <li>&lt;ol&gt; i &lt;ul&gt; – listy</li>
+    <li>&lt;img&gt; – obrazek</li>
+    <li>&lt;a&gt; – hiperłącze</li>
+  </ul>
+
+</div>
+
+<div id="formularz">
+
+  <form action="mailto:beatap@cs.pollub.pl" method="post" enctype="text/plain">
+
+    <label for="nazwisko">Nazwisko:</label>
+    <input type="text" id="nazwisko" name="nazwisko" required>
+
+    <label for="wiek">Wiek:</label>
+    <input type="number" id="wiek" name="wiek" step="1" min="0" max="130">
+
+    <label for="email">Adres e-mail:</label>
+    <input type="email" id="email" name="mail" required>
+
+    <label for="country">Wybierz państwo:</label>
+    <select id="country" name="country">
+      <option value="">-- Wybierz --</option>
+      <option value="pl">Polska</option>
+      <option value="de">Niemcy</option>
+      <option value="fr">Francja</option>
+      <option value="uk">Wielka Brytania</option>
+      <option value="diff">Inne</option>
+    </select>
+
+    <p><b>Zamawiam tutorial z języka:</b></p>
+    <div class="inline-options">
+      <input type="checkbox" id="c" name="jezyk" value="C/C++">
+      <label for="c">Język C/C++</label>
+
+      <input type="checkbox" id="java" name="jezyk" value="Java">
+      <label for="java">Język Java</label>
+
+      <input type="checkbox" id="php" name="jezyk" value="PHP">
+      <label for="php">Język PHP</label>
+    </div>
+
+    <p><b>Sposób zapłaty:</b></p>
+    <div class="inline-options">
+      <input type="radio" id="eurocard" name="platnosc" value="eurocard" required>
+      <label for="eurocard">Eurocard</label>
+
+      <input type="radio" id="visa" name="platnosc" value="visa">
+      <label for="visa">Visa</label>
+
+      <input type="radio" id="przelew" name="platnosc" value="przelew">
+      <label for="przelew">Przelew bankowy</label>
+    </div>
+    <br><br>
+
+    <button type="submit">Wyślij</button>
+    <button type="reset">Anuluj</button>
+
+    <p>&copy; BP</p>
+
+  </form>
+
+</div>
+
+</body>
+</html>
