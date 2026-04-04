@@ -24,7 +24,7 @@ const PrzyciskDoRejestracji = document.getElementById('enter-rejestracja');
   else{
     localStorage.setItem('zarejestrowanyUser', Login.value);
     localStorage.setItem('zarejestrowanyPassword', Password.value);
-    window.location.href = "zaloguj.html";
+    window.location.href = "zaloguj-uczen.html";
     return true;
   }
 }

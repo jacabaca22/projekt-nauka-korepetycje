@@ -5,34 +5,42 @@
     background-color: black;
     margin: 0;
     font-family: 'Inter', sans-serif;
-    
+
 }
-.reszta-glownej-strony{
+
+.reszta-glownej-strony {
     background-image: url("background.png");
     background-size: cover;
     background-position: center;
-    height: calc(100vh - 70px); /* Odejmujemy wysokość navbaru */
+    height: calc(100vh - 70px);
+    /* Odejmujemy wysokość navbaru */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 hr {
-    border: none;               /* Dobre praktyki, usuwa domyślną ramkę */
-    border-top: 1px solid white; /* Twoja biała linia */
-    margin: 0;                   /* Usuwa marginesy, jeśli są, żeby linia była równo pod paskiem */
-    
+    border: none;
+    /* Dobre praktyki, usuwa domyślną ramkę */
+    border-top: 1px solid white;
+    /* Twoja biała linia */
+    margin: 0;
+    /* Usuwa marginesy, jeśli są, żeby linia była równo pod paskiem */
+
     /* KLUCZ: Pozycjonowanie relatywne i z-index */
-    position: relative;          
-    z-index: 10;                 /* Nadaj linii niski numer z-index */
+    position: relative;
+    z-index: 10;
+    /* Nadaj linii niski numer z-index */
 }
-.logowanie-strona{  
-    display:flex;
+
+.logowanie-strona {
+    display: flex;
     align-items: center;
     background-color: white;
     color: burlywood;
-    border-style:solid;
-    border-color:aqua;
-    padding:15px;
+    border-style: solid;
+    border-color: aqua;
+    padding: 15px;
     max-width: 300px;
     justify-content: center;
 }
@@ -43,19 +51,22 @@ hr {
     justify-content: space-between;
     align-items: center;
     padding: 5px 25px;
-    position: relative; /* Ważne dla pozycjonowania dropdowna */
+    position: relative;
+    /* Ważne dla pozycjonowania dropdowna */
 }
-.zaloguj-ikonka{
-    
+
+.zaloguj-ikonka {
+
     font-family: 'Inter', sans-serif;
-    margin:15px;
-    border-style:solid;
-    border-width:3px;
-    padding:15px;
+    margin: 15px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 15px;
     border-radius: 10%;
-    border-color:blue;
-    background-color:blue;
+    border-color: blue;
+    background-color: blue;
 }
+
 .navbar a {
     font-family: "Oswald", sans-serif;
     color: white;
@@ -76,87 +87,111 @@ hr {
 }
 
 .right-side {
-    position: relative; /* Dropdown będzie się trzymał tego kontenera */
-    display:flex;
+    position: relative;
+    /* Dropdown będzie się trzymał tego kontenera */
+    display: flex;
     align-self: center;
     gap: 30px;
 }
-.strona-rejestracja{
+
+.strona-rejestracja {
     text-align: center;
-    display: flex;           /* 1. Włącza tryb elastyczny */
-    justify-content: center; /* 2. Środkuje w poziomie (lewo-prawo) */
+    display: flex;
+    /* 1. Włącza tryb elastyczny */
+    justify-content: center;
+    /* 2. Środkuje w poziomie (lewo-prawo) */
     align-items: center
 }
 
-.zarejestruj-ikonka{
+.zarejestruj-ikonka {
     font-family: 'Inter', sans-serif;
-    margin:15px;
-    border-style:solid;
-    border-width:3px;
-    padding:15px;
-    border-radius: 10%;
-    border-color:purple;
-    background-color:purple;
-}
-  
-.strona-logowanie{
-    text-align: center;
-    display: flex;           /* 1. Włącza tryb elastyczny */
-    justify-content: center; /* 2. Środkuje w poziomie (lewo-prawo) */
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-    
-}
-.formularz-logowanie{
-    margin:15px;
-    border-style:solid;
-    border-width:3px;
-    padding:15px;
-    border-radius: 10%;
-    border-color:blue;
-}
-.wpisz{
-    border-color:aquamarine
-}
-.zarejestruj{
-    
-    font-family: 'Inter', sans-serif;
-    margin:15px;
-    border-style:solid;
-    border-width:3px;
-    padding:15px;
+    margin: 15px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 15px;
     border-radius: 10%;
     border-color: purple;
-    max-width:200px;
-    border-radius: 10%;
-    
+    background-color: purple;
+}
+
+.strona-logowanie {
+    text-align: center;
+    display: flex;
+    /* 1. Włącza tryb elastyczny */
+    justify-content: center;
+    /* 2. Środkuje w poziomie (lewo-prawo) */
+    align-items: center;
+    font-family: 'Inter', sans-serif;
 
 }
 
-#enter-rejestracja, #enter-logowanie {
-    
+.formularz-logowanie {
+    margin: 15px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 15px;
+    border-radius: 10%;
+    border-color: blue;
+}
+
+.wpisz {
+    border-color: aquamarine
+}
+
+.zarejestruj {
+
+    font-family: 'Inter', sans-serif;
+    margin: 15px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 15px;
+    border-radius: 10%;
+    border-color: purple;
+    max-width: 200px;
+    border-radius: 10%;
+
+
+}
+
+.wybor-panelu {
     display: flex;
-    flex-direction: column;    /* Pozwala na używanie paddingu i marginesów */
-    padding: 10px 25px;       /* Nadaje przyciskowi objętość */
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    /* Pełna wysokość ekranu */
+}
+
+#enter-rejestracja,
+#enter-logowanie {
+
+    display: flex;
+    flex-direction: column;
+    /* Pozwala na używanie paddingu i marginesów */
+    padding: 10px 25px;
+    /* Nadaje przyciskowi objętość */
     font-weight: bold;
-    cursor: pointer;          /* Kursor łapki */
-    transition: transform 0.2s, background-color 0.3s; /* Płynne przejście */
+    cursor: pointer;
+    /* Kursor łapki */
+    transition: transform 0.2s, background-color 0.3s;
+    /* Płynne przejście */
     border-width: 2px;
     text-align: center;
     align-items: center;
-    margin-top: 10px;
-    border-style : solid;
-    background-color:blue;
-    color:black;
-    justify-content: center; /* Środkuje tekst w przycisku */
-    text-decoration:none;
-    display:block;
-    
+    margin: 10px auto;
+    /* Margines auto centruje element w poziomie */
+    border-style: solid;
+    background-color: blue;
+    color: black;
+    justify-content: center;
+    /* Środkuje tekst w przycisku */
+    text-decoration: none;
     max-width: 150px;
 }
+
 .user-menu {
     cursor: pointer;
-    justify-content:center;
+    justify-content: center;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -181,7 +216,7 @@ hr {
     opacity: 0;
     z-index: 100;
     border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(255,255,255,0.1);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .img-rozwijalny.active {
@@ -211,8 +246,11 @@ hr {
 
 
 @keyframes Animacja3 {
-    100% { color: rgb(60, 17, 190); }
+    100% {
+        color: rgb(60, 17, 190);
+    }
 }
+
 .left-side a:hover {
     animation: Animacja3 0.3s ease forwards;
 }
@@ -220,27 +258,41 @@ hr {
 
 
 .logo-ksiazka:hover {
-    transform: scale(1.2); /* Prostszy zamiennik dla Animacja2 */
+    transform: scale(1.2);
+    /* Prostszy zamiennik dla Animacja2 */
 }
-@keyframes Animacja4{
-    100%{background-color:green}
+
+@keyframes Animacja4 {
+    100% {
+        background-color: green
+    }
 }
-.zaloguj-ikonka:hover{
+
+.zaloguj-ikonka:hover {
     animation: Animacja4 0.3s ease forwards;
 }
-.zarejestruj-ikonka:hover{
+
+.zarejestruj-ikonka:hover {
     animation: Animacja4 0.3s ease forwards;
 }
-@keyframes Animacja5{
-    0%{color:white}
-    100%{color:blue}
+
+@keyframes Animacja5 {
+    0% {
+        color: white
+    }
+
+    100% {
+        color: blue
+    }
 }
-#korepetycje-napis:hover{
+
+#korepetycje-napis:hover {
     animation: Animacja5 0.3s ease forwards;
 }
-.reszta-glownej-strony:hover{
-    animation-name:pulsujace-przyblizenie;
-    animation-duration : 3s;
+
+.reszta-glownej-strony:hover {
+    animation-name: pulsujace-przyblizenie;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }

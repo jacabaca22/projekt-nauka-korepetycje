@@ -6,11 +6,14 @@
         
         
          function validateForm(){
+
+            // SPRAWDZANIE PATTERNÓW DLA LOGIN,HASLO,
+            // SPRAWDZANIE CZY LOGIN I HASLO SIE ZGADZAJA Z TYM CO JEST ZAREJESTROWANE W LOCAL STORAGE
         const LoginOk = loginPattern.test(Login.value);
         const PasswordOk = passwordPattern.test(Password.value);
         const zarejestrowanyUser = localStorage.getItem('zarejestrowanyUser');
         const zarejestrowanyPassword = localStorage.getItem('zarejestrowanyPassword');
-
+    
 
             
   if (Login.value === '' || Password.value === '') {

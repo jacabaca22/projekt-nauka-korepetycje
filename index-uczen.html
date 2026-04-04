@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wybierz swoje korepetycje</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="glowna">
+    <div class="navbar">
+        <div class="left-side">
+            <a href="index-uczen.html"><img src="ksiazka2.png" class="logo-ksiazka" alt="logo"></a>
+            <a href="index-uczen.html">
+                <h3 id="korepetycje-napis">Korepetycje (Uczeń)</h3>
+            </a>
+            <a href="angielski.html">Angielski</a>
+            <a href="matematyka.html">Matematyka</a>
+            <a href="fizyka.html">Fizyka</a>
+
+        </div>
+
+        <div class="right-side">
+            <a href="zarejestruj.html">
+                <h3 class="zarejestruj-ikonka">Zarejestruj się</h3>
+            </a>
+            <a href="first-panel.html">
+                <h3 class="zaloguj-ikonka">Zaloguj się</h3>
+            </a>
+            <a id="zalogowanyUser"></a>
+            <div class="user-menu" onclick="rozsunKarte()">
+                <img src="profil.png" alt="profil" class="okragly-awatar">
+                <div id="dropdown" class="img-rozwijalny">
+                    <a href="profil.html">
+                        <h3>Profil</h3>
+                    </a>
+                    <a href="ustawienia.html">
+                        <h3>Ustawienia</h3>
+                    </a>
+                    <a id="wyloguj">
+                        <h3>Wyloguj</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <hr>
+    <div class="reszta-glownej-strony">
+        <h1 class="main-napis">Twoje korepetycje w jednym miejscu</h1>
+    </div>
+    <script src="main-site.js"></script>
+</body>
+
+</html>
