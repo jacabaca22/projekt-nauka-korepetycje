@@ -12,8 +12,8 @@
 <body class = "glowna">
     <div class="navbar">
         <div class="left-side">  
-            <img src="ksiazka2.png" class="logo-ksiazka" alt="logo">
-            <h3 id = "korepetycje-napis">Korepetycje</h3>
+            <a href = "index.html"><img src="ksiazka2.png" class="logo-ksiazka" alt="logo"></a>
+            <a href = "index.html"><h3 id = "korepetycje-napis">Korepetycje</h3></a>
             <a href="angielski.html">Angielski</a>
             <a href="matematyka.html">Matematyka</a>
             <a href="fizyka.html">Fizyka</a>
@@ -23,6 +23,7 @@
         <div class="right-side">
             <a href = "zarejestruj.html"><h3 class = "zarejestruj-ikonka" >Zarejestruj się</h3></a>
             <a href = "zaloguj.html"><h3 class = "zaloguj-ikonka" >Zaloguj się</h3></a>
+            <a id = "zalogowanyUser"></a>
             <div class="user-menu" onclick="rozsunKarte()">
                 <img src="profil.png" alt="profil" class="okragly-awatar" >
                 <div id="dropdown" class="img-rozwijalny">
@@ -33,15 +34,29 @@
             </div>
         </div>
     </div>
+</div>
     <hr>
     <div class = "reszta-glownej-strony">
     <h1 class="main-napis">Twoje korepetycje w jednym miejscu</h1>
     </div>  
     <script>
+       const zapisanyLogin = localStorage.getItem('zalogowanyUser');
         function rozsunKarte() {
             const dropdown = document.getElementById('dropdown');
             dropdown.classList.toggle('active');
         }
+    if(zapisanyLogin != null){
+        document.querySelector('.zaloguj-ikonka').style.display = 'none';
+        document.querySelector('.zarejestruj-ikonka').style.display = 'none';
+        document.querySelector('.user-menu').style.display = 'block';
+        
+    }
+    else{
+        document.querySelector('.zaloguj-ikonka').style.display = 'block';
+        document.querySelector('.zarejestruj-ikonka').style.display = 'block';
+        document.querySelector('.user-menu').style.display = 'none';
+    }
+       
     </script>
 </body>
 </html>

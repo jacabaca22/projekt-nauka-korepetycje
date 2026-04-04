@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wybierz swoje korepetycje</title>
+    <title>Rejestracja</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,15 +14,50 @@
          <img src = "ksiazka.png" height = 50px width = 50px>
         <h2>Zarejestruj się</h2>
         <h3>E-mail: </h3>
-        <input type = "email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+        <input type = "email" required id = "Email">
         <h3>Login:</h3>
-        <input type = "text" >
+        <input type = "text" id = "Login">
         <h3>Hasło</h3>
-        <input type = "password" pattern="^(?=.*[A-Z]).{8,}$" required>
+        <input type = "password" id = "Password">
         <h3>Powtórz hasło:</h3>
-        <input type = "password" pattern = >
-        <a href = "logowanie.html" id = "enter-rejestracja">Enter</a>
+        <input type = "password" id = "ConfirmPassword">
+        <a id = "enter-rejestracja">Enter</a>
     </div>
 </body>
-</body>
+<script>
+        const PrzyciskDoRejestracji = document.getElementById('enter-rejestracja'); 
+        const Login = document.getElementById('Login');
+        const Password = document.getElementById('Password');
+        const ConfirmPassword = document.getElementById('ConfirmPassword');
+        const Email = document.getElementById('Email');
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const loginPattern = /^[a-zA-Z0-9]{3,20}$/;
+        const passwordPattern = /^(?=.*[A-Z]).{8,}$/;
+        
+
+         function validateForm(){
+        const EmailOk   = emailPattern.test(Email.value);
+        const LoginOk = loginPattern.test(Login.value);
+        const PasswordOk = passwordPattern.test(Password.value);
+        
+  if (Login.value === '' || Password.value === '' || Email.value === '') {
+    alert('Please fill in all fields');
+    return false;
+  }
+  else if (!EmailOk || !LoginOk || !PasswordOk || Password.value!= ConfirmPassword.value) {
+    alert('Please enter valid information in all fields');
+    return false;
+  }
+  else{
+    localStorage.setItem('zarejestrowanyUser', Login.value);
+    localStorage.setItem('zarejestrowanyPassword', Password.value);
+    window.location.href = "zaloguj.html";
+    return true;
+  }
+}
+PrzyciskDoRejestracji.addEventListener('click', (event) => {
+  event.preventDefault();
+  validateForm();
+});
+</script>
 </html>

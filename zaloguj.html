@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wybierz swoje korepetycje</title>
+    <title>Logowanie</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +14,54 @@
     <div class = formularz-logowanie>
     <img src = "ksiazka.png" height = 50px width = 50px>
     <h2>Zaloguj się</h2>
-    <h2>E-mail: </h2>
-    <input type = "email">
     <h2 >Login:</h2>
-    <input type = "text">
+    <input type = "text" id = "Login" required>
     <h2>Password:</h2>
-    <input type = "password">   
-    <a href = index.html id = "enter-logowanie">Enter</a>
+    <input type = "password" id = "Password" required>
+    <a id = "enter-logowanie">Enter</a>
+    <h2>Nie masz konta?</h2>
+    <a id = enter-rejestracja href = "zarejestruj.html">Zarejestruj się</a>
+    <a href = "index.html"><h3>Strona główna</h3></a>
     </div>
     </body>
+    <script>
+        const PrzyciskDoLogowania = document.getElementById('enter-logowanie'); 
+        const Login = document.getElementById('Login');
+        const Password = document.getElementById('Password');
+        const loginPattern = /^[a-zA-Z0-9]{3,20}$/;
+        const passwordPattern = /^(?=.*[A-Z]).{8,}$/;
+        
+        
+         function validateForm(){
+        const LoginOk = loginPattern.test(Login.value);
+        const PasswordOk = passwordPattern.test(Password.value);
+        const zarejestrowanyUser = localStorage.getItem('zarejestrowanyUser');
+        const zarejestrowanyPassword = localStorage.getItem('zarejestrowanyPassword');
+
+
+            
+  if (Login.value === '' || Password.value === '') {
+    alert('Please fill in all fields');
+    return false;
+  }
+  else if(Login.value != zarejestrowanyUser || Password.value != zarejestrowanyPassword){
+                alert('No user found with the provided login. Please register first.');
+                return false;
+            }
+  else if (!LoginOk || !PasswordOk) {
+    alert('Please enter valid information in all fields');
+    return false;
+  }
+  else{
+    localStorage.setItem('zalogowanyUser', Login.value);
+    localStorage.setItem('zalogowanyPassword', Password.value);
+    window.location.href = "index.html";
+    return true;
+  }
+}
+PrzyciskDoLogowania.addEventListener('click', (event) => {
+  event.preventDefault();
+  validateForm();
+});
+</script>
 </html>
