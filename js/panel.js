@@ -1,3 +1,4 @@
+// Przekierowanie do odpowiedniej strony w zależności od wyboru panelu
 const przyciskUczen = document.getElementById('przycisk-uczen');
 const przyciskKorepetytor = document.getElementById('przycisk-korepetytor');
 przyciskUczen.addEventListener('click', () => {

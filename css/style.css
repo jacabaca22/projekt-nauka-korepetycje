@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
+:root,
+body {
+    padding: 0;
+    margin: 0;
+}
 
 .glowna {
     color: white;
@@ -9,28 +15,36 @@
 }
 
 .reszta-glownej-strony {
-    background-image: url("background.png");
+    background-image: url("../img/background.png");
     background-size: cover;
     background-position: center;
     height: calc(100vh - 70px);
-    /* Odejmujemy wysokość navbaru */
+    /* Odejmujemy wysokoĹ›Ä‡ navbaru */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.reszta-profilu {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 15px;
+    border-radius: 4rem;
+    border-color: blue;
+    max-width: 150px;
+}
+
 hr {
     border: none;
-    /* Dobre praktyki, usuwa domyślną ramkę */
     border-top: 1px solid white;
-    /* Twoja biała linia */
     margin: 0;
-    /* Usuwa marginesy, jeśli są, żeby linia była równo pod paskiem */
-
-    /* KLUCZ: Pozycjonowanie relatywne i z-index */
     position: relative;
     z-index: 10;
-    /* Nadaj linii niski numer z-index */
 }
 
 .logowanie-strona {
@@ -52,7 +66,7 @@ hr {
     align-items: center;
     padding: 5px 25px;
     position: relative;
-    /* Ważne dla pozycjonowania dropdowna */
+    /* WaĹĽne dla pozycjonowania dropdowna */
 }
 
 .zaloguj-ikonka {
@@ -62,7 +76,7 @@ hr {
     border-style: solid;
     border-width: 3px;
     padding: 15px;
-    border-radius: 10%;
+    border-radius: 4rem;
     border-color: blue;
     background-color: blue;
 }
@@ -88,7 +102,7 @@ hr {
 
 .right-side {
     position: relative;
-    /* Dropdown będzie się trzymał tego kontenera */
+    /* Dropdown bÄ™dzie siÄ™ trzymaĹ‚ tego kontenera */
     display: flex;
     align-self: center;
     gap: 30px;
@@ -97,9 +111,9 @@ hr {
 .strona-rejestracja {
     text-align: center;
     display: flex;
-    /* 1. Włącza tryb elastyczny */
+    /* 1. WĹ‚Ä…cza tryb elastyczny */
     justify-content: center;
-    /* 2. Środkuje w poziomie (lewo-prawo) */
+    /* 2. Ĺšrodkuje w poziomie (lewo-prawo) */
     align-items: center
 }
 
@@ -109,7 +123,7 @@ hr {
     border-style: solid;
     border-width: 3px;
     padding: 15px;
-    border-radius: 10%;
+    border-radius: 4rem;
     border-color: purple;
     background-color: purple;
 }
@@ -117,9 +131,9 @@ hr {
 .strona-logowanie {
     text-align: center;
     display: flex;
-    /* 1. Włącza tryb elastyczny */
+    /* 1. WĹ‚Ä…cza tryb elastyczny */
     justify-content: center;
-    /* 2. Środkuje w poziomie (lewo-prawo) */
+    /* 2. Ĺšrodkuje w poziomie (lewo-prawo) */
     align-items: center;
     font-family: 'Inter', sans-serif;
 
@@ -130,7 +144,7 @@ hr {
     border-style: solid;
     border-width: 3px;
     padding: 15px;
-    border-radius: 10%;
+    border-radius: 4rem;
     border-color: blue;
 }
 
@@ -145,10 +159,9 @@ hr {
     border-style: solid;
     border-width: 3px;
     padding: 15px;
-    border-radius: 10%;
     border-color: purple;
     max-width: 200px;
-    border-radius: 10%;
+    border-radius: 4rem;
 
 
 }
@@ -159,7 +172,7 @@ hr {
     align-items: center;
     gap: 50px;
     height: 100vh;
-    /* Pełna wysokość ekranu */
+    /* PeĹ‚na wysokoĹ›Ä‡ ekranu */
 }
 
 #enter-rejestracja,
@@ -167,24 +180,26 @@ hr {
 
     display: flex;
     flex-direction: column;
-    /* Pozwala na używanie paddingu i marginesów */
+    /* Pozwala na uĹĽywanie paddingu i marginesĂłw */
     padding: 10px 25px;
-    /* Nadaje przyciskowi objętość */
+    /* Nadaje przyciskowi objÄ™toĹ›Ä‡ */
     font-weight: bold;
     cursor: pointer;
-    /* Kursor łapki */
+    /* Kursor Ĺ‚apki */
     transition: transform 0.2s, background-color 0.3s;
-    /* Płynne przejście */
+    /* PĹ‚ynne przejĹ›cie */
     border-width: 2px;
+    border-radius: 4rem;
+    border-color: black;
     text-align: center;
     align-items: center;
     margin: 10px auto;
     /* Margines auto centruje element w poziomie */
     border-style: solid;
-    background-color: blue;
-    color: black;
+    background-color: purple;
+    color: white;
     justify-content: center;
-    /* Środkuje tekst w przycisku */
+    /* Ĺšrodkuje tekst w przycisku */
     text-decoration: none;
     max-width: 150px;
 }
@@ -295,4 +310,23 @@ hr {
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+}
+
+@keyframes Animacja6 {
+    0% {
+        background-color: blue;
+
+    }
+
+    100% {
+        background-color: black;
+    }
+}
+
+#enter-logowanie:hover {
+    animation: Animacja6 0.6s ease forwards;
+}
+
+#enter-rejestracja:hover {
+    animation: Animacja6 0.6s ease forwards;
 }

@@ -1,15 +1,15 @@
-const zapisanyLogin = localStorage.getItem('zalogowanyUser');
 
+//Rozsuwanie menu z profilem
 function rozsunKarte() {
     const dropdown = document.getElementById('dropdown');
     dropdown.classList.toggle('active');
 }
 
-// 1. Ustawienie wyglądu paska zaraz po wejściu na stronę
+// Ustawienie wyglądu paska zaraz po wejściu na stronę
 const pokazLogin = document.getElementById('zalogowanyUser');
 
 if (zapisanyLogin !== null) {
-    // Jeśli użytkownik JEST zalogowany
+    // Jeśli użytkownik JEST zalogowany - znika logowanie i rejestracja
     document.querySelector('.zaloguj-ikonka').style.display = 'none';
     document.querySelector('.zarejestruj-ikonka').style.display = 'none';
     document.querySelector('.user-menu').style.display = 'flex'; // używamy flex dla user-menu (według style.css)
@@ -20,7 +20,7 @@ if (zapisanyLogin !== null) {
         pokazLogin.style.display = 'block';
     }
 } else {
-    // Jeśli użytkownik NIE JEST zalogowany
+    // Jeśli użytkownik NIE JEST zalogowany - znika user menu
     document.querySelector('.zaloguj-ikonka').style.display = 'block';
     document.querySelector('.zarejestruj-ikonka').style.display = 'block';
     document.querySelector('.user-menu').style.display = 'none';
@@ -44,7 +44,7 @@ if (kliknijWyloguj) {
         document.querySelector('.user-menu').style.display = 'none';
         document.querySelector(".nazwaUzytkownika").style.display = 'none';
         pokazLogin.style.display = 'none';
-        // Przekierowanie na logowanie
-        window.location.href = "zaloguj-uczen.html";
+
+        window.location.href = "first-panel.html"
     });
 }
