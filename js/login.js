@@ -33,8 +33,6 @@ function validateForm() {
   else {
     localStorage.setItem('zalogowanyUser', Login.value);
     localStorage.setItem('zalogowanyPassword', Password.value);
-    localStorage.setItem('zalogowanyEmail', Email.value);
-    localStorage.setItem('zalogowanyNumer', Numer.value);
     return true;
   }
 }
@@ -55,7 +53,6 @@ if (PrzyciskDoLogowaniaStudent) {
     }
   });
 }
-
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     if (PrzyciskDoLogowaniaTutor) {

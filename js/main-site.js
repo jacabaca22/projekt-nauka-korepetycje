@@ -7,10 +7,11 @@ function rozsunKarte() {
 
 // Ustawienie wyglądu paska zaraz po wejściu na stronę
 const zapisanyLogin = localStorage.getItem('zalogowanyUser');
-const pokazLogin = document.getElementById('zalogowanyUser');
-const profilLogin = document.getElementsByClassName('user-nickname');
+const zapisanyNumer = localStorage.getItem('zarejestrowanyNumer')
+const zapisanyEmail = localStorage.getItem('zarejestrowanyEmail');
 
-if (zapisanyLogin == null) {
+const pokazLogin = document.getElementById('zalogowanyUser');
+if (zapisanyLogin != null) {
     // Jeśli użytkownik JEST zalogowany - znika logowanie i rejestracja TU TRZEBA JESZCZE ZMIENIĆ
     if (document.querySelector('.zaloguj-ikonka')) document.querySelector('.zaloguj-ikonka').style.display = 'none';
     if (document.querySelector('.zarejestruj-ikonka')) document.querySelector('.zarejestruj-ikonka').style.display = 'none';
@@ -20,10 +21,16 @@ if (zapisanyLogin == null) {
     if (pokazLogin) {
         pokazLogin.textContent = `Witaj, ${zapisanyLogin}!`;
     }
-    const nicknameEl = document.querySelector('.user-nickname');
-    if (nicknameEl) {
-        nicknameEl.textContent = `Nazwa użytkownika: ${zapisanyLogin}`;
-        nicknameEl.style.display = 'block';
+    const nicknameEl = document.getElementById('.user-nickname');
+    const numberEl = document.getElementById('.user-number');
+    const emailEl = document.getElementById('.user-email');
+    if (numberEl) {
+        numberEl.textContent = `Numer telefonu: ${zapisanyNumer}`;
+        numberEl.style.display = 'block';
+    }
+    if (emailEl) {
+        emailEl.textContent = `Email: ${zapisanyEmail}`;
+        emailEl.style.display = 'block';
     }
 } else {
     // Jeśli użytkownik NIE JEST zalogowany - znika user menu

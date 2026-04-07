@@ -1,26 +1,45 @@
 const zapisanyLogin = localStorage.getItem('zalogowanyUser');
-const zapisanyEmail = localStorage.getItem('zalogowanyEmail');
-const zapisanyNumer = localStorage.getItem('zalogowanyNumer');
-const zapisaneHaslo = localStorage.getItem('zalogowaneHaslo')
-if (zapisanyLogin !== null) {
-    document.querySelector('.user-nickname').textContent = `Nazwa użytkownika: ${zapisanyLogin}`;
-    document.querySelector('.user-nickname').style.display = 'block';
+const zapisanyEmail = localStorage.getItem('zarejestrowanyEmail');
+const zapisanyNumer = localStorage.getItem('zarejestrowanyNumer');
+const zapisaneHaslo = localStorage.getItem('zarejestrowanyPassword');
+
+// 1. Podstawowe dane
+function zapisDanychDoProfilu() {
+    if (zapisanyLogin) {
+        document.querySelector('.user-nickname').textContent = `Nazwa użytkownika: ${zapisanyLogin}`;
+    }
+
+    if (zapisanyEmail) {
+        document.querySelector('.user-email').textContent = `Email: ${zapisanyEmail}`;
+    }
+
+    const numerElement = document.querySelector('.user-numer');
+    if (zapisanyNumer) {
+        numerElement.textContent = `Numer telefonu: ${zapisanyNumer}`;
+    } else {
+        numerElement.textContent = 'Numer telefonu: brak';
+    }
 }
 
-if (zapisanyEmail !== null) {
-    document.querySelector('.user-email').textContent = `Email: ${zapisanyEmail}`;
-    document.querySelector('.user-email').style.display = 'block';
-}
+const btn = document.getElementById('toggle-view');
+const display = document.getElementById('password-display');
+let isHidden = true;
+function pokazywanieHasla() {
+    if (zapisaneHaslo && display) {
+        // Na start ustawiamy gwiazdki
+        display.textContent = "Hasło : " + "*".repeat(zapisaneHaslo.length);
 
-if (zapisanyNumer !== null) {
-    document.querySelector('.user-numer').textContent = `Numer telefonu: ${zapisanyNumer}`;
-    document.querySelector('.user-numer').style.display = 'block';
+        btn.addEventListener('click', () => {
+            if (isHidden) {
+                display.textContent = "Hasło : " + zapisaneHaslo;
+                btn.src = "../../img/crossed-out-eye.png";
+            } else {
+                display.textContent = "Hasło : " + "*".repeat(zapisaneHaslo.length);
+                btn.src = "../../img/eye.jpg";
+            }
+            isHidden = !isHidden;
+        });
+    }
 }
-if (zapisanyNumer == null) {
-    document.querySelector('.user-numer').textContent = 'Numer telefonu : brak';
-    document.querySelector('.user-numer').style.display = 'block';
-}
-if (zapisaneHaslo !== null) {
-    document.querySelector('.user-haslo').textContent = `Hasło: ${zapisaneHaslo}`;
-    document.querySelector('.user-haslo').style.display = 'block';
-}
+pokazywanieHasla();
+zapisDanychDoProfilu();
