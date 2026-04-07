@@ -7,7 +7,7 @@ function rozsunKarte() {
 
 // Ustawienie wyglądu paska zaraz po wejściu na stronę
 const pokazLogin = document.getElementById('zalogowanyUser');
-
+const profilLogin = document.getElementsByClassName('user-nickname');
 if (zapisanyLogin !== null) {
     // Jeśli użytkownik JEST zalogowany - znika logowanie i rejestracja
     document.querySelector('.zaloguj-ikonka').style.display = 'none';
@@ -17,7 +17,8 @@ if (zapisanyLogin !== null) {
     // Pokazujemy login użytkownika na pasku:
     if (pokazLogin) {
         pokazLogin.textContent = `Witaj, ${zapisanyLogin}!`;
-        pokazLogin.style.display = 'block';
+        document.querySelector('.user-nickname').textContent = `Nazwa użytkownika: ${zapisanyLogin}`;
+        document.querySelector('.user-nickname').style.display = 'block';
     }
 } else {
     // Jeśli użytkownik NIE JEST zalogowany - znika user menu

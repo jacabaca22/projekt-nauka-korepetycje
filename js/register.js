@@ -1,5 +1,5 @@
 const PrzyciskDoRejestracjiUczen = document.getElementById('enter-rejestracja-uczen');
-const PrzyciskDoRejestracjiKorepetytor = document.getElementById('enter-rejestracja-korepetytor')
+const PrzyciskDoRejestracjiKorepetytor = document.getElementById('enter-rejestracja-korepetytor');
 const Login = document.getElementById('Login');
 const Password = document.getElementById('Password');
 const ConfirmPassword = document.getElementById('ConfirmPassword');
@@ -14,7 +14,6 @@ function validateForm() {
   const EmailOk = emailPattern.test(Email.value);
   const LoginOk = loginPattern.test(Login.value);
   const PasswordOk = passwordPattern.test(Password.value);
-
   if (Login.value === '' || Password.value === '' || Email.value === '') {
     alert('Please fill in all fields');
     return false;
@@ -24,9 +23,7 @@ function validateForm() {
     return false;
   }
   else {
-    // Zapisanie danych do localStorage
-    localStorage.setItem('zarejestrowanyUser', Login.value);
-    localStorage.setItem('zarejestrowanyPassword', Password.value);
+
     return true;
   }
 }
@@ -40,7 +37,6 @@ if (PrzyciskDoRejestracjiUczen) {
     }
   });
 }
-
 if (PrzyciskDoRejestracjiKorepetytor) {
   PrzyciskDoRejestracjiKorepetytor.addEventListener('click', (event) => {
     event.preventDefault();

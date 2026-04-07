@@ -1,4 +1,5 @@
-const PrzyciskDoLogowania = document.getElementById('enter-logowanie');
+const PrzyciskDoLogowaniaUczen = document.getElementById('enter-logowanie-uczen');
+const PrzyciskDoLogowaniaKorepetytor = document.getElementById('enter-logowanie-korepetytor');
 const Login = document.getElementById('Login');
 const Password = document.getElementById('Password');
 const loginPattern = /^[a-zA-Z0-9]{3,20}$/;
@@ -34,9 +35,20 @@ function validateForm() {
     return true;
   }
 }
-PrzyciskDoLogowania.addEventListener('click', (event) => {
-  event.preventDefault();
-  if (validateForm()) {
-    window.location.href = "index-uczen.html";
-  }
-});
+
+if (PrzyciskDoLogowaniaKorepetytor) {
+  PrzyciskDoLogowaniaKorepetytor.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      window.location.href = "index-tutor.html";
+    }
+  });
+}
+if (PrzyciskDoLogowaniaUczen) {
+  PrzyciskDoLogowaniaUczen.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      window.location.href = "index-student.html";
+    }
+  });
+}

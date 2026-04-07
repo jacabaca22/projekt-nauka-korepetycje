@@ -175,8 +175,10 @@ hr {
     /* PeĹ‚na wysokoĹ›Ä‡ ekranu */
 }
 
-#enter-rejestracja,
-#enter-logowanie {
+#enter-rejestracja-uczen,
+#enter-logowanie-uczen,
+#enter-logowanie-korepetytor,
+#enter-rejestracja-korepetytor {
 
     display: flex;
     flex-direction: column;
@@ -323,10 +325,12 @@ hr {
     }
 }
 
-#enter-logowanie:hover {
+#enter-logowanie-uczen:hover,
+#enter-logowanie-korepetytor:hover {
     animation: Animacja6 0.6s ease forwards;
 }
 
-#enter-rejestracja:hover {
+#enter-rejestracja-uczen:hover,
+#enter-rejestracja-korepetytor:hover {
     animation: Animacja6 0.6s ease forwards;
 }
