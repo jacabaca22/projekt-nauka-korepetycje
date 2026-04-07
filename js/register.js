@@ -1,9 +1,10 @@
-const PrzyciskDoRejestracjiUczen = document.getElementById('enter-rejestracja-uczen');
-const PrzyciskDoRejestracjiKorepetytor = document.getElementById('enter-rejestracja-korepetytor');
+const PrzyciskDoRejestracjiStudent = document.getElementById('enter-rejestracja-student');
+const PrzyciskDoRejestracjiTutor = document.getElementById('enter-rejestracja-tutor');
 const Login = document.getElementById('Login');
 const Password = document.getElementById('Password');
 const ConfirmPassword = document.getElementById('ConfirmPassword');
 const Email = document.getElementById('Email');
+const PhoneNumber = document.getElementById('PhoneNumber')
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const loginPattern = /^[a-zA-Z0-9]{3,20}$/;
 const passwordPattern = /^(?=.*[A-Z]).{8,}$/;
@@ -23,25 +24,41 @@ function validateForm() {
     return false;
   }
   else {
-
+    localStorage.setItem('zarejestrowanyUser', Login.value);
+    localStorage.setItem('zarejestrowanyPassword', Password.value);
+    localStorage.setItem('zarejestrowanyEmail', Email.value);
+    localStorage.setItem('zarejestrowanyNumer', PhoneNumber.value);
     return true;
   }
 }
 
 // Przekierowanie do odpowiedniej strony w zależności od wyboru panelu
-if (PrzyciskDoRejestracjiUczen) {
-  PrzyciskDoRejestracjiUczen.addEventListener('click', (event) => {
+if (PrzyciskDoRejestracjiStudent) {
+  PrzyciskDoRejestracjiStudent.addEventListener('click', (event) => {
     event.preventDefault();
     if (validateForm()) {
-      window.location.href = "zaloguj-uczen.html";
+      window.location.href = "zaloguj-student.html";
     }
   });
 }
-if (PrzyciskDoRejestracjiKorepetytor) {
-  PrzyciskDoRejestracjiKorepetytor.addEventListener('click', (event) => {
+if (PrzyciskDoRejestracjiTutor) {
+  PrzyciskDoRejestracjiTutor.addEventListener('click', (event) => {
     event.preventDefault();
     if (validateForm()) {
-      window.location.href = "zaloguj-korepetytor.html";
+      window.location.href = "zaloguj-tutor.html";
     }
   });
 }
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    if (PrzyciskDoRejestracjiTutor) {
+      event.preventDefault();
+      PrzyciskDoRejestracjiTutor.click();
+    }
+    if (PrzyciskDoRejestracjiStudent) {
+      event.preventDefault();
+      PrzyciskDoRejestracjiStudent.click();
+    }
+  }
+});

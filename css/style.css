@@ -175,10 +175,10 @@ hr {
     /* PeĹ‚na wysokoĹ›Ä‡ ekranu */
 }
 
-#enter-rejestracja-uczen,
-#enter-logowanie-uczen,
-#enter-logowanie-korepetytor,
-#enter-rejestracja-korepetytor {
+#enter-rejestracja-student,
+#enter-logowanie-student,
+#enter-logowanie-tutor,
+#enter-rejestracja-tutor {
 
     display: flex;
     flex-direction: column;
@@ -325,12 +325,12 @@ hr {
     }
 }
 
-#enter-logowanie-uczen:hover,
-#enter-logowanie-korepetytor:hover {
+#enter-logowanie-student:hover,
+#enter-logowanie-tutor:hover {
     animation: Animacja6 0.6s ease forwards;
 }
 
-#enter-rejestracja-uczen:hover,
-#enter-rejestracja-korepetytor:hover {
+#enter-rejestracja-student:hover,
+#enter-rejestracja-tutor:hover {
     animation: Animacja6 0.6s ease forwards;
 }

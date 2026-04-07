@@ -6,25 +6,30 @@ function rozsunKarte() {
 }
 
 // Ustawienie wyglądu paska zaraz po wejściu na stronę
+const zapisanyLogin = localStorage.getItem('zalogowanyUser');
 const pokazLogin = document.getElementById('zalogowanyUser');
 const profilLogin = document.getElementsByClassName('user-nickname');
-if (zapisanyLogin !== null) {
-    // Jeśli użytkownik JEST zalogowany - znika logowanie i rejestracja
-    document.querySelector('.zaloguj-ikonka').style.display = 'none';
-    document.querySelector('.zarejestruj-ikonka').style.display = 'none';
-    document.querySelector('.user-menu').style.display = 'flex'; // używamy flex dla user-menu (według style.css)
+
+if (zapisanyLogin == null) {
+    // Jeśli użytkownik JEST zalogowany - znika logowanie i rejestracja TU TRZEBA JESZCZE ZMIENIĆ
+    if (document.querySelector('.zaloguj-ikonka')) document.querySelector('.zaloguj-ikonka').style.display = 'none';
+    if (document.querySelector('.zarejestruj-ikonka')) document.querySelector('.zarejestruj-ikonka').style.display = 'none';
+    if (document.querySelector('.user-menu')) document.querySelector('.user-menu').style.display = 'flex';
 
     // Pokazujemy login użytkownika na pasku:
     if (pokazLogin) {
         pokazLogin.textContent = `Witaj, ${zapisanyLogin}!`;
-        document.querySelector('.user-nickname').textContent = `Nazwa użytkownika: ${zapisanyLogin}`;
-        document.querySelector('.user-nickname').style.display = 'block';
+    }
+    const nicknameEl = document.querySelector('.user-nickname');
+    if (nicknameEl) {
+        nicknameEl.textContent = `Nazwa użytkownika: ${zapisanyLogin}`;
+        nicknameEl.style.display = 'block';
     }
 } else {
     // Jeśli użytkownik NIE JEST zalogowany - znika user menu
-    document.querySelector('.zaloguj-ikonka').style.display = 'block';
-    document.querySelector('.zarejestruj-ikonka').style.display = 'block';
-    document.querySelector('.user-menu').style.display = 'none';
+    if (document.querySelector('.zaloguj-ikonka')) document.querySelector('.zaloguj-ikonka').style.display = 'block';
+    if (document.querySelector('.zarejestruj-ikonka')) document.querySelector('.zarejestruj-ikonka').style.display = 'block';
+    if (document.querySelector('.user-menu')) document.querySelector('.user-menu').style.display = 'none';
 
     // Ukrywamy pole loginu:
     if (pokazLogin) {
@@ -36,10 +41,10 @@ if (zapisanyLogin !== null) {
 const kliknijWyloguj = document.getElementById('wyloguj');
 if (kliknijWyloguj) {
     kliknijWyloguj.addEventListener('click', () => {
-        //  usuwamy info o zalogowaniu z pamięci przeglądarki!
+        //  usuwamy info o zalogowaniu z pamięci przeglądarki
         localStorage.removeItem('zalogowanyUser');
 
-        // Zmień wygląd tuż przed przejściem (choć zmiana strony i tak potrwa ułamek sekundy)
+        // Zmień wygląd tuż przed przejściem
         document.querySelector('.zaloguj-ikonka').style.display = 'block';
         document.querySelector('.zarejestruj-ikonka').style.display = 'block';
         document.querySelector('.user-menu').style.display = 'none';
