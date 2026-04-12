@@ -1,338 +1,508 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
 
-:root,
+:root {
+    /* Color Palette */
+    --bg-dark: #0a0a0c;
+    --navy-deep: #12121e;
+    --accent-purple: #7c4dff;
+    --accent-purple-glow: rgba(124, 77, 255, 0.4);
+    --accent-cyan: #00e5ff;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
+    
+    /* Spacing & Radii */
+    --radius-lg: 24px;
+    --radius-md: 12px;
+    --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     padding: 0;
     margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
+
+/* --- Layout Components --- */
 
 .glowna {
-    color: white;
-    background-color: black;
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-
-}
-
-.reszta-glownej-strony {
-    background-image: url("../img/background.png");
-    background-size: cover;
-    background-position: center;
-    height: calc(100vh - 70px);
-    /* Odejmujemy wysokoĹ›Ä‡ navbaru */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.reszta-profilu {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-    border-style: solid;
-    border-width: 3px;
-    padding: 15px;
-    border-radius: 4rem;
-    border-color: blue;
-    max-width: 150px;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid white;
-    margin: 0;
-    position: relative;
-    z-index: 10;
-}
-
-.logowanie-strona {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    color: burlywood;
-    border-style: solid;
-    border-color: aqua;
-    padding: 15px;
-    max-width: 300px;
-    justify-content: center;
+    background-color: var(--bg-dark);
 }
 
 .navbar {
     display: flex;
-    background-color: black;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
     justify-content: space-between;
     align-items: center;
-    padding: 5px 25px;
-    position: relative;
-    /* WaĹĽne dla pozycjonowania dropdowna */
+    padding: 12px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.zaloguj-ikonka {
-
-    font-family: 'Inter', sans-serif;
-    margin: 15px;
-    border-style: solid;
-    border-width: 3px;
-    padding: 15px;
-    border-radius: 4rem;
-    border-color: blue;
-    background-color: blue;
+.left-side, .right-side {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 .navbar a {
     font-family: "Oswald", sans-serif;
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    opacity: 0.8;
 }
 
-.left-side {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+.navbar a:hover {
+    opacity: 1;
+    color: var(--accent-cyan);
+    transform: translateY(-1px);
 }
 
 .logo-ksiazka {
-    width: 45px;
-    height: 45px;
-    transition: 0.3s;
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 8px var(--accent-purple-glow));
+    transition: var(--transition);
 }
 
-.right-side {
-    position: relative;
-    /* Dropdown bÄ™dzie siÄ™ trzymaĹ‚ tego kontenera */
-    display: flex;
-    align-self: center;
-    gap: 30px;
+.logo-ksiazka:hover {
+    transform: scale(1.1) rotate(-5deg);
 }
 
-.strona-rejestracja {
-    text-align: center;
-    display: flex;
-    /* 1. WĹ‚Ä…cza tryb elastyczny */
-    justify-content: center;
-    /* 2. Ĺšrodkuje w poziomie (lewo-prawo) */
-    align-items: center
+#korepetycje-napis {
+    margin: 0;
+    font-weight: 700;
+    background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Buttons --- */
+
+.zaloguj-ikonka, .zarejestruj-ikonka {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 10px 24px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    transition: var(--transition);
+}
+
+.zaloguj-ikonka {
+    background: transparent;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.zaloguj-ikonka:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
 }
 
 .zarejestruj-ikonka {
-    font-family: 'Inter', sans-serif;
-    margin: 15px;
-    border-style: solid;
-    border-width: 3px;
-    padding: 15px;
-    border-radius: 4rem;
-    border-color: purple;
-    background-color: purple;
-}
-
-.strona-logowanie {
-    text-align: center;
-    display: flex;
-    /* 1. WĹ‚Ä…cza tryb elastyczny */
-    justify-content: center;
-    /* 2. Ĺšrodkuje w poziomie (lewo-prawo) */
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-
-}
-
-.formularz-logowanie {
-    margin: 15px;
-    border-style: solid;
-    border-width: 3px;
-    padding: 15px;
-    border-radius: 4rem;
-    border-color: blue;
-}
-
-.wpisz {
-    border-color: aquamarine
-}
-
-.zarejestruj {
-
-    font-family: 'Inter', sans-serif;
-    margin: 15px;
-    border-style: solid;
-    border-width: 3px;
-    padding: 15px;
-    border-color: purple;
-    max-width: 200px;
-    border-radius: 4rem;
-
-
-}
-
-.wybor-panelu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    height: 100vh;
-    /* PeĹ‚na wysokoĹ›Ä‡ ekranu */
-}
-
-#enter-rejestracja-student,
-#enter-logowanie-student,
-#enter-logowanie-tutor,
-#enter-rejestracja-tutor {
-
-    display: flex;
-    flex-direction: column;
-    /* Pozwala na uĹĽywanie paddingu i marginesĂłw */
-    padding: 10px 25px;
-    /* Nadaje przyciskowi objÄ™toĹ›Ä‡ */
-    font-weight: bold;
-    cursor: pointer;
-    /* Kursor Ĺ‚apki */
-    transition: transform 0.2s, background-color 0.3s;
-    /* PĹ‚ynne przejĹ›cie */
-    border-width: 2px;
-    border-radius: 4rem;
-    border-color: black;
-    text-align: center;
-    align-items: center;
-    margin: 10px auto;
-    /* Margines auto centruje element w poziomie */
-    border-style: solid;
-    background-color: purple;
+    background: var(--accent-purple);
+    border: 1px solid var(--accent-purple);
     color: white;
-    justify-content: center;
-    /* Ĺšrodkuje tekst w przycisku */
-    text-decoration: none;
-    max-width: 150px;
-    font-size: 20px;
-    max-height: 100px;
 }
+
+.zarejestruj-ikonka:hover {
+    background: #6200ea;
+    box-shadow: 0 0 20px var(--accent-purple-glow);
+}
+
+/* --- Forms (Login/Register) --- */
+
+.strona-rejestracja, .strona-logowanie {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top right, #1a1a2e, #0a0a0c);
+    padding: 20px;
+}
+
+.zarejestruj, .formularz-logowanie {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    padding: 48px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-premium);
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+}
+
+.zarejestruj h2, .formularz-logowanie h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 28px;
+    margin-bottom: 32px;
+    color: var(--text-primary);
+}
+
+.zarejestruj h3, .formularz-logowanie h2:not(:first-of-type) {
+    text-align: left;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 16px 0 8px 4px;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    transition: var(--transition);
+    margin-bottom: 12px;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 10px rgba(0, 225, 255, 0.1);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    border: 2px solid var(--accent-purple);
+    padding: 10px;
+    background: var(--glass-bg);
+}
+
+.btn-primary {
+    display: inline-block;
+    width: 100%;
+    padding: 16px;
+    background: var(--accent-purple);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 18px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background: #6200ea;
+    box-shadow: 0 0 25px var(--accent-purple-glow);
+    transform: translateY(-2px);
+}
+
+.form-footer {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.form-footer a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    opacity: 1;
+    color: var(--accent-cyan);
+}
+
+
+
+/* --- Hero Section --- */
+
+.reszta-glownej-strony {
+    position: relative;
+    background-image: linear-gradient(rgba(10, 10, 12, 0.7), rgba(10, 10, 12, 0.7)), url("../img/background.png");
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 65px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.main-napis {
+    font-family: "Oswald", sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 800px;
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    margin: 0;
+}
+
+/* --- Dropdown Menu --- */
 
 .user-menu {
+    position: relative;
     cursor: pointer;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    gap: 30px;
 }
 
 .okragly-awatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid var(--accent-cyan);
+    padding: 2px;
+    background: var(--bg-dark);
+    transition: var(--transition);
+}
+
+.okragly-awatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
 }
 
 .img-rozwijalny {
     position: absolute;
-    top: 55px;
+    top: calc(100% + 15px);
     right: 0;
-    background-color: #1a1a1a;
-    width: 150px;
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.5s ease;
+    background: rgba(20, 20, 30, 0.95);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    width: 200px;
+    border-radius: var(--radius-md);
     opacity: 0;
-    z-index: 100;
-    border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1000;
+    padding: 8px;
+    box-shadow: var(--shadow-premium);
 }
 
 .img-rozwijalny.active {
-    max-height: 250px;
     opacity: 1;
-    padding: 10px;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-.img-rozwijalny h3 {
-    font-size: 16px;
-    margin: 15px 10px;
-    font-weight: 400;
+.img-rozwijalny a {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: normal;
+    opacity: 1;
 }
 
-.img-rozwijalny h3:hover {
-    color: rgb(60, 17, 190);
+.img-rozwijalny a h3 {
+    margin: 0;
 }
 
-/* --- Animacje --- */
+.img-rozwijalny a:hover {
+    background: var(--glass-bg);
+    color: var(--accent-cyan) !important;
+}
 
-.main-napis {
-    font-family: "Oswald", sans-serif;
-    font-size: 50px;
+/* --- Utilities --- */
+
+hr {
+    border: none;
+    height: 1px;
+    background: var(--glass-border);
+    margin: 0;
+}
+
+/* --- Selection Screen --- */
+
+.strona-wyboru {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #1a1a2e, #0a0a0c);
+    padding: 40px;
+}
+
+.selection-container {
     text-align: center;
-    margin-top: 50px;
+    max-width: 1000px;
+    width: 100%;
 }
 
-
-@keyframes Animacja3 {
-    100% {
-        color: rgb(60, 17, 190);
-    }
+.selection-container h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 48px;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.left-side a:hover {
-    animation: Animacja3 0.3s ease forwards;
+.selection-container p {
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+    font-size: 18px;
 }
 
+.wybor-panelu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    justify-content: center;
+}
 
+.selection-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-.logo-ksiazka:hover {
+.selection-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
+}
+
+.selection-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0, 229, 255, 0.1);
+}
+
+.card-icon {
+    font-size: 64px;
+    margin-bottom: 24px;
+    transition: var(--transition);
+}
+
+.selection-card:hover .card-icon {
     transform: scale(1.2);
-    /* Prostszy zamiennik dla Animacja2 */
 }
 
-@keyframes Animacja4 {
-    100% {
-        background-color: green
-    }
+.selection-card h2 {
+    font-family: "Oswald", sans-serif;
+    color: var(--text-primary);
+    font-size: 28px;
+    margin-bottom: 16px;
 }
 
-.zaloguj-ikonka:hover {
-    animation: Animacja4 0.3s ease forwards;
+.selection-card p {
+    font-size: 15px;
+    margin-bottom: 32px;
+    line-height: 1.6;
 }
 
-.zarejestruj-ikonka:hover {
-    animation: Animacja4 0.3s ease forwards;
+.btn-card {
+    padding: 12px 32px;
+    background: var(--accent-cyan);
+    color: var(--bg-dark);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    transition: var(--transition);
 }
 
-@keyframes Animacja5 {
-    0% {
-        color: white
-    }
-
-    100% {
-        color: blue
-    }
+.selection-card:hover .btn-card {
+    background: #fff;
+    box-shadow: 0 0 15px white;
 }
 
-#korepetycje-napis:hover {
-    animation: Animacja5 0.3s ease forwards;
+/* Specific card accents */
+.tutor-card:hover {
+    border-color: var(--accent-purple);
 }
 
-.reszta-glownej-strony:hover {
-    animation-name: pulsujace-przyblizenie;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+.tutor-card:hover .btn-card {
+    background: var(--accent-purple);
+    color: white;
+    box-shadow: 0 0 15px var(--accent-purple-glow);
 }
 
-@keyframes Animacja6 {
-    0% {
-        background-color: blue;
-
-    }
-
-    100% {
-        background-color: black;
-    }
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-#enter-logowanie-student:hover,
-#enter-logowanie-tutor:hover {
-    animation: Animacja6 0.6s ease forwards;
-}
-
-#enter-rejestracja-student:hover,
-#enter-rejestracja-tutor:hover {
-    animation: Animacja6 0.6s ease forwards;
-}
+.zarejestruj, .formularz-logowanie, .main-napis {
+    animation: fadeIn 0.8s ease-out forwards;
+}

@@ -2,8 +2,6 @@ const PrzyciskDoLogowaniaStudent = document.getElementById('enter-logowanie-stud
 const PrzyciskDoLogowaniaTutor = document.getElementById('enter-logowanie-tutor');
 const Login = document.getElementById('Login');
 const Password = document.getElementById('Password');
-const loginPattern = /^[a-zA-Z0-9]{3,20}$/;
-const passwordPattern = /^(?=.*[A-Z]).{8,}$/;
 
 
 function validateForm() {
@@ -17,17 +15,8 @@ function validateForm() {
   const zarejestrowanyEmail = localStorage.getItem('zarejestrowanyEmail');
 
 
-
-  if (Login.value === '' || Password.value === '') {
-    alert('Please fill in all fields');
-    return false;
-  }
-  else if (Login.value != zarejestrowanyUser || Password.value != zarejestrowanyPassword) {
-    alert('No user found with the provided login. Please register first.');
-    return false;
-  }
-  else if (!LoginOk || !PasswordOk) {
-    alert('Please enter valid information in all fields');
+  if (Login.value != zarejestrowanyUser || Password.value != zarejestrowanyPassword) {
+    alert('No user found ewith the provided login or password.');
     return false;
   }
   else {
@@ -41,7 +30,7 @@ if (PrzyciskDoLogowaniaTutor) {
   PrzyciskDoLogowaniaTutor.addEventListener('click', (event) => {
     event.preventDefault();
     if (validateForm()) {
-      window.location.href = "index-tutor.html";
+      window.location.href = "index.html";
     }
   });
 }
@@ -49,7 +38,7 @@ if (PrzyciskDoLogowaniaStudent) {
   PrzyciskDoLogowaniaStudent.addEventListener('click', (event) => {
     event.preventDefault();
     if (validateForm()) {
-      window.location.href = "index-student.html";
+      window.location.href = "index.html";
     }
   });
 }

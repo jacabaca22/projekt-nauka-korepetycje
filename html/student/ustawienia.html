@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,19 +9,17 @@
 </head>
 
 <body class="strona-logowanie" style="background-color: white;">
-    <div class="left-side">
-        <a href="profil.html"><img src="../../img/student.jpg" class="logo-ksiazka" alt="logo"></a>
-    </div>
+
     <div class="formularz-logowanie">
         <img src="../../img/student.jpg" class="logo-ksiazka" alt="logo">
-        <h3 class="user-nickname"></h3>
-        <h3 class="user-email"></h3>
-        <h3 class="user-numer"></h3>
-        <h3 id="password-display">************</h3>
+        <h3 class="user-nickname">Nazwa użytkownika: <button id="zamien-login">zmień</button></h3>
+        <h3 class="user-email">Email: <button id="zamien-email">zmień</button></h3>
+        <h3 class="user-numer">Numer telefonu: <button id="zamien-numer">zmień</button></h3>
+        <h3 id="password-display">Hasło: ************<button id="zamien-haslo">zmień</button></h3>
         <img id="toggle-view" src="../../img/eye.jpg" height=30px width=40px>
     </div>
 
-    <script src="../../js/profile.js"></script>
+    <script type="module" src="../../js/settings.js"></script>
 </body>
 
 </html>

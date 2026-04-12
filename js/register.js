@@ -11,54 +11,43 @@ const passwordPattern = /^(?=.*[A-Z]).{8,}$/;
 
 
 //Sprawdzenie czy e-mail,login haslo sa zgodne z patternem i czy hasla sa takie same
-function validateForm() {
-  const EmailOk = emailPattern.test(Email.value);
-  const LoginOk = loginPattern.test(Login.value);
-  const PasswordOk = passwordPattern.test(Password.value);
+
+function checkIfEmpty() {
   if (Login.value === '' || Password.value === '' || Email.value === '') {
     alert('Please fill in all fields');
     return false;
   }
-  else if (!EmailOk || !LoginOk || !PasswordOk || Password.value != ConfirmPassword.value) {
+  return true;
+}
+function checkIfPatternIsGood() {
+  const EmailOk = emailPattern.test(Email.value);
+  const LoginOk = loginPattern.test(Login.value);
+  const PasswordOk = passwordPattern.test(Password.value);
+  if (!EmailOk || !LoginOk || !PasswordOk || Password.value != ConfirmPassword.value) {
     alert('Please enter valid information in all fields');
     return false;
   }
-  else {
-    localStorage.setItem('zarejestrowanyUser', Login.value);
-    localStorage.setItem('zarejestrowanyPassword', Password.value);
-    localStorage.setItem('zarejestrowanyEmail', Email.value);
-    localStorage.setItem('zarejestrowanyNumer', PhoneNumber.value);
-    return true;
-  }
+  return true;
 }
-
-// Przekierowanie do odpowiedniej strony w zależności od wyboru panelu
-if (PrzyciskDoRejestracjiStudent) {
-  PrzyciskDoRejestracjiStudent.addEventListener('click', (event) => {
+if (PrzyciskDoRejestracji) {
+  PrzyciskDoRejestracji.addEventListener('click', (event) => {
     event.preventDefault();
-    if (validateForm()) {
-      window.location.href = "zaloguj-student.html";
-    }
-  });
-}
-if (PrzyciskDoRejestracjiTutor) {
-  PrzyciskDoRejestracjiTutor.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      window.location.href = "zaloguj-tutor.html";
+    if (checkIfEmpty() !== false && checkIfPatternIsGood() !== false) {
+      localStorage.setItem('zarejestrowanyUser', Login.value);
+      localStorage.setItem('zarejestrowanyPassword', Password.value);
+      localStorage.setItem('zarejestrowanyEmail', Email.value);
+      localStorage.setItem('zarejestrowanyNumer', PhoneNumber.value);
+      window.location.href = "zaloguj.html";
     }
   });
 }
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
-    if (PrzyciskDoRejestracjiTutor) {
+    if (PrzyciskDoRejestracji) {
       event.preventDefault();
-      PrzyciskDoRejestracjiTutor.click();
-    }
-    if (PrzyciskDoRejestracjiStudent) {
-      event.preventDefault();
-      PrzyciskDoRejestracjiStudent.click();
+      PrzyciskDoRejestracji.click();
     }
   }
+
 });

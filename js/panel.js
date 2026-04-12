@@ -2,8 +2,8 @@
 const przyciskStudent = document.getElementById('przycisk-student');
 const przyciskTutor = document.getElementById('przycisk-tutor');
 przyciskStudent.addEventListener('click', () => {
-    window.location.href = "zaloguj-student.html";
+    window.location.href = "zaloguj.html";
 });
 przyciskTutor.addEventListener('click', () => {
-    window.location.href = "zaloguj-tutor.html";
+    window.location.href = "zaloguj.html";
 });
