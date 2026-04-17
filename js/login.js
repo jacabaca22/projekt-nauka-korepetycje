@@ -1,8 +1,16 @@
+import { ikonaPoprawnaRejestracja } from "./register.js";
+
+
 const PrzyciskDoLogowaniaStudent = document.getElementById('enter-logowanie-student');
 const PrzyciskDoLogowaniaTutor = document.getElementById('enter-logowanie-tutor');
 const Login = document.getElementById('Login');
 const Password = document.getElementById('Password');
-
+const rawData = localStorage.setItem('registered-user-data');
+const registeredUser = JSON.parse(rawData);
+if (!rawData) {
+  alert('No users yet!');
+  return false;
+}
 
 function validateForm() {
 
@@ -10,18 +18,21 @@ function validateForm() {
   // SPRAWDZANIE CZY LOGIN I HASLO SIE ZGADZAJA Z TYM CO JEST ZAREJESTROWANE W LOCAL STORAGE
   const LoginOk = loginPattern.test(Login.value);
   const PasswordOk = passwordPattern.test(Password.value);
-  const zarejestrowanyUser = localStorage.getItem('zarejestrowanyUser');
-  const zarejestrowanyPassword = localStorage.getItem('zarejestrowanyPassword');
-  const zarejestrowanyEmail = localStorage.getItem('zarejestrowanyEmail');
+  const DataFromRegistration = localStorage.getItem('registered-user-data');
+
 
 
   if (Login.value != zarejestrowanyUser || Password.value != zarejestrowanyPassword) {
-    alert('No user found ewith the provided login or password.');
+    alert('No user found with the provided login or password.');
     return false;
   }
   else {
-    localStorage.setItem('zalogowanyUser', Login.value);
-    localStorage.setItem('zalogowanyPassword', Password.value);
+    const loggedUser = {
+      login: Login.value,
+      loginTime: new Date().toLocaleString(), // Dodatek: wiesz, kiedy user wszedł
+      // 
+    }
+    localStorage.setItem('logged-user-data', JSON.stringify(loggedUser))
     return true;
   }
 }
