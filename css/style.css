@@ -12,7 +12,7 @@
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-blur: blur(12px);
-    
+
     /* Spacing & Radii */
     --radius-lg: 24px;
     --radius-md: 12px;
@@ -54,7 +54,8 @@ body {
     z-index: 1000;
 }
 
-.left-side, .right-side {
+.left-side,
+.right-side {
     display: flex;
     align-items: center;
     gap: 32px;
@@ -78,8 +79,8 @@ body {
 }
 
 .logo-ksiazka {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     filter: drop-shadow(0 0 8px var(--accent-purple-glow));
     transition: var(--transition);
 }
@@ -99,7 +100,8 @@ body {
 
 /* --- Buttons --- */
 
-.zaloguj-ikonka, .zarejestruj-ikonka {
+.zaloguj-ikonka,
+.zarejestruj-ikonka {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 10px 24px;
@@ -118,7 +120,6 @@ body {
 }
 
 .zaloguj-ikonka:hover {
-    background: var(--accent-cyan);
     color: var(--bg-dark);
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
 }
@@ -136,7 +137,8 @@ body {
 
 /* --- Forms (Login/Register) --- */
 
-.strona-rejestracja, .strona-logowanie {
+.strona-rejestracja,
+.strona-logowanie {
     display: flex;
     min-height: 100vh;
     justify-content: center;
@@ -145,7 +147,8 @@ body {
     padding: 20px;
 }
 
-.zarejestruj, .formularz-logowanie {
+.zarejestruj,
+.formularz-logowanie {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
@@ -158,14 +161,16 @@ body {
     text-align: center;
 }
 
-.zarejestruj h2, .formularz-logowanie h2 {
+.zarejestruj h2,
+.formularz-logowanie h2 {
     font-family: "Oswald", sans-serif;
     font-size: 28px;
     margin-bottom: 32px;
     color: var(--text-primary);
 }
 
-.zarejestruj h3, .formularz-logowanie h2:not(:first-of-type) {
+.zarejestruj h3,
+.formularz-logowanie h2:not(:first-of-type) {
     text-align: left;
     font-size: 14px;
     color: var(--text-secondary);
@@ -275,7 +280,7 @@ input:focus {
 
 .reszta-glownej-strony {
     position: relative;
-    background-image: linear-gradient(rgba(10, 10, 12, 0.7), rgba(10, 10, 12, 0.7)), url("../img/background.png");
+    background-image: linear-gradient(rgba(10, 10, 12, 0.7), rgba(10, 10, 12, 0.7)), url("../img/photo-1761998066484-daa29b9ad605.avif");
     background-size: cover;
     background-position: center;
     height: calc(100vh - 65px);
@@ -288,16 +293,17 @@ input:focus {
 
 .main-napis {
     font-family: "Oswald", sans-serif;
-    font-size: 64px;
+    font-size: clamp(32px, 8vw, 60px);
     font-weight: 700;
-    line-height: 1.1;
-    max-width: 800px;
+    line-height: 1.2;
     background: linear-gradient(135deg, #ffffff 0%, #a0a0ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
-    margin: 0;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
 }
 
 /* --- Dropdown Menu --- */
@@ -439,14 +445,14 @@ hr {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%);
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
     pointer-events: none;
 }
 
 .selection-card:hover {
     transform: translateY(-10px);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0, 229, 255, 0.1);
+    border-color: red;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.2);
 }
 
 .card-icon {
@@ -482,13 +488,15 @@ hr {
 }
 
 .selection-card:hover .btn-card {
-    background: #fff;
-    box-shadow: 0 0 15px white;
+    background: red;
+    box-shadow: 0 0 15px red;
+    color: white
 }
 
 /* Specific card accents */
 .tutor-card:hover {
     border-color: var(--accent-purple);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(124, 77, 255, 0.2);
 }
 
 .tutor-card:hover .btn-card {
@@ -499,10 +507,31 @@ hr {
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.zarejestruj, .formularz-logowanie, .main-napis {
+.zarejestruj,
+.formularz-logowanie {
     animation: fadeIn 0.8s ease-out forwards;
-}
+}
+
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: red;
+    }
+}

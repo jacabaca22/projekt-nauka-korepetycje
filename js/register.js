@@ -1,5 +1,4 @@
-const PrzyciskDoRejestracjiStudent = document.getElementById('enter-rejestracja-student');
-const PrzyciskDoRejestracjiTutor = document.getElementById('enter-rejestracja-tutor');
+const PrzyciskDoRejestracji = document.getElementById('enter-rejestracja');
 const Login = document.getElementById('Login');
 const Password = document.getElementById('Password');
 const ConfirmPassword = document.getElementById('ConfirmPassword');
@@ -33,10 +32,12 @@ if (PrzyciskDoRejestracji) {
   PrzyciskDoRejestracji.addEventListener('click', (event) => {
     event.preventDefault();
     if (checkIfEmpty() !== false && checkIfPatternIsGood() !== false) {
-      localStorage.setItem('zarejestrowanyUser', Login.value);
-      localStorage.setItem('zarejestrowanyPassword', Password.value);
-      localStorage.setItem('zarejestrowanyEmail', Email.value);
-      localStorage.setItem('zarejestrowanyNumer', PhoneNumber.value);
+      const registeredUser = {
+        login: Login.value,
+        email: Email.value,
+        phone: PhoneNumber.value
+      }
+      localStorage.setItem('registered-user-data', JSON.stringify(registeredUser));
       window.location.href = "zaloguj.html";
     }
   });
