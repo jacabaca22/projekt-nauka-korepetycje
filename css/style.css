@@ -1,4 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+/* Responsywność dla menu */
+@media (max-width: 850px) {
+    .navbar {
+        flex-direction: column;
+        /* Ustawia logo i linki w pionie */
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .left-side {
+        flex-wrap: wrap;
+        /* Pozwala linkom (Matematyka itp.) przejść do nowej linii */
+        justify-content: center;
+        gap: 15px;
+        /* Zmniejszamy odstępy */
+    }
+
+    .right-side {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #korepetycje-napis {
+        display: none;
+        /* Opcjonalnie: ukrywa długi napis na bardzo małych telefonach */
+    }
+
+    .zaloguj-ikonka,
+    .zarejestruj-ikonka {
+        padding: 8px 15px;
+        /* Mniejsze przyciski na telefonie */
+        font-size: 12px;
+    }
+}
 
 :root {
     /* Color Palette */
